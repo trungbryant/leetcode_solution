@@ -84,4 +84,39 @@ public class SolutionTest {
             actual = actual.next;
         }
     }
+
+    @Test
+    public void testLengthOfLongestSubstringCase01(){
+        String s = "abcabcbb";
+        int expected = 3;
+        assertEquals(expected, new Solution().lengthOfLongestSubString(s));
+    }
+
+    @Test
+    public void testLengthOfLongestSubstringCase02(){
+        String s = "bbbbb";
+        int expected = 1;
+        assertEquals(expected, new Solution().lengthOfLongestSubString(s));
+    }
+
+    @Test
+    public void testLengthOfLongestSubstringCase03(){
+        String s = "pwwkew";
+        int expected = 3;
+        assertEquals(expected, new Solution().lengthOfLongestSubString(s));
+    }
+
+    @Test
+    public void testLengthOfLongestSubstringCase04(){
+        String s = " ";
+        int expected = 1;
+        assertEquals(expected, new Solution().lengthOfLongestSubString(s));
+    }
+
+    @Test
+    public void testLengthOfLongestSubstringCase05(){
+        String s = "au";
+        int expected = 2;
+        assertEquals(expected, new Solution().lengthOfLongestSubString(s));
+    }
 }

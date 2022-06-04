@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 class Solution{
     /**
@@ -55,5 +57,36 @@ class Solution{
             tem.next = l2;
         }
         return res.next;
+    }
+
+    /**
+     * Return the length of longest substring without repeating characters.
+     * 
+     * @param s
+     * @return longest substring.
+     */
+    public int lengthOfLongestSubString(String s){
+        Set<Character> set = new HashSet<>();
+        int start = 0;
+        int end  = 0;
+        int longest = 0;
+        char[] arr = s.toCharArray();
+        for(end = 0; end < arr.length; end++){
+            if(set.contains(arr[end])){
+                longest = Math.max(longest, end - start);
+                for(int i = start; i < end; i++){
+                    
+                    if(arr[i] == arr[end]){
+                        start = i+1;
+                        break;
+                    }
+                    set.remove(arr[i]); 
+                }
+                                
+            }else{
+                set.add(arr[end]);
+            }
+        }
+        return Math.max(longest, set.size());
     }
 }
