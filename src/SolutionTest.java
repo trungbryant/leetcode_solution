@@ -159,4 +159,22 @@ public class SolutionTest {
         String expected = "bb";
         assertEquals(expected, solution.longestPalindrome(s));
     }
+
+    @Test
+    public void testConvertStringCase01(){
+        String s = "PAYPALISHIRING";
+        int numRows = 3;
+        String expected = "PAHNAPLSIIGYIR";
+
+        assertEquals(expected, solution.convertString(s, numRows));
+    }
+
+    @Test
+    public void testConvertStringCase02(){
+        String s = "PAYPALISHIRING";
+        int numRows = 4;
+        String expected = "PINALSIGYAHRPI";
+
+        assertEquals(expected, solution.convertString(s, numRows));
+    }
 }

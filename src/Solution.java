@@ -162,4 +162,45 @@ class Solution{
         }
         return result;
     }
+
+    /**
+     * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+     * 
+     * @param s
+     * @param numRows
+     * @return
+     */
+    public String convertString(String s, int numRows){
+        // 012345678910111213
+        // PAYPALISHI R I N G
+
+        // P   A   H   N -> 0   4   8    12
+        // A P L S I I G -> 1 3 5 7 9 11 13
+        // Y   I   R     -> 2   6   10 
+
+        // P     I    N  -> 0   6    12
+        // A   L S  I G  -> 1 5 7 11 13
+        // Y A   H R     -> 2 4 8 10
+        // P     I       -> 3   9
+
+        // 2*numRows - 2;
+        if(numRows == 1){
+            return s;
+        }
+        char[] arr = s.toCharArray();
+        int length = s.length();
+        int step = 2*numRows - 2;
+        StringBuilder result = new StringBuilder();
+
+        for(int i = 0; i < numRows; i++){
+            for(int j = i; j < length; j += step){
+                result.append(arr[j]);
+                if(i != 0 && i != numRows - 1 && j + step - 2*i < length){
+                    result.append(arr[j + step - 2*i]);
+                }
+            }
+        }
+
+        return result.toString();
+    }
 }
