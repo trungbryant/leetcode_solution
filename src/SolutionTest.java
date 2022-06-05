@@ -177,4 +177,32 @@ public class SolutionTest {
 
         assertEquals(expected, solution.convertString(s, numRows));
     }
+
+    @Test
+    public void testReverseCase01(){
+        int x = 123;
+        int expected = 321;
+        assertEquals(expected, solution.reverse(x));
+    }
+
+    @Test
+    public void testReverseCase02(){
+        int x = -123;
+        int expected = -321;
+        assertEquals(expected, solution.reverse(x));
+    }
+
+    @Test
+    public void testReverseCase03(){
+        int x = 120;
+        int expected = 21;
+        assertEquals(expected, solution.reverse(x));
+    }
+
+    @Test
+    public void testReverseCase04(){
+        int x = 1534236469;
+        int expected = 0;
+        assertEquals(expected, solution.reverse(x));
+    }
 }
