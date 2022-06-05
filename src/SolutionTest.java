@@ -145,4 +145,18 @@ public class SolutionTest {
         double expected = 2.50000;
         assertTrue(expected == solution.findMedianSortedArrays(nums1, nums2));
     }
+
+    @Test
+    public void testLongestPalindromeCase01(){
+        String s = "babad";
+        String expected = "bab";
+        assertEquals(expected, solution.longestPalindrome(s));
+    }
+
+    @Test
+    public void testLongestPalindromeCase02(){
+        String s = "cbbd";
+        String expected = "bb";
+        assertEquals(expected, solution.longestPalindrome(s));
+    }
 }

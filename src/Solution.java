@@ -134,4 +134,32 @@ class Solution{
         }
         return median;
     }
+
+    /**
+     * Given a string s, return the longest palindromic substring in s.
+     * 
+     * @param s
+     * @return longest palindromic substring in s
+     */
+    public String longestPalindrome(String s) { 
+        int length = s.length();
+        String result = "";
+        int longest = 0;
+        boolean[][] dt = new boolean[length][length];
+        char[] arr = s.toCharArray();
+        for(int end = 0; end < length; end++){
+            for(int start = end; start >= 0; start--){
+                if(end - start < 3){
+                    dt[start][end] = arr[start] == arr[end];
+                }else{
+                    dt[start][end] = arr[start] == arr[end] && dt[start + 1][end - 1];
+                }
+                if(dt[start][end] && end - start + 1 > longest){
+                    longest = end - start + 1;
+                    result = s.substring(start, end + 1);
+                }
+            }
+        }
+        return result;
+    }
 }
