@@ -256,4 +256,26 @@ class Solution{
         return result > Integer.MAX_VALUE ? 
             (isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE) : (isNegative ? (-1)*(int)result : (int)result);
     }
+
+    /**
+     * Given an integer x, return true if x is palindrome integer.
+     * 
+     * @param x
+     * @return true if x is palindrome
+     */
+    public boolean isPalindrome(int x){
+        if(x < 0){
+            return false;
+        }else if(x < 10){
+            return true;
+        }else{
+            int reverse = 0;
+            int temp = x;
+            while(temp > 0){
+                reverse = reverse*10 + temp%10;
+                temp /= 10;
+            }
+            return reverse == x;
+        }
+    }
 }

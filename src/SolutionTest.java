@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -239,5 +240,23 @@ public class SolutionTest {
         String s = "9223372036854775808";
         int expected = 2147483647;
         assertEquals(expected, solution.myAtoi(s));
+    }
+
+    @Test
+    public void testIsPalindromeCase01(){
+        int x = 121;
+        assertTrue(solution.isPalindrome(x));
+    }
+
+    @Test
+    public void testIsPalindromeCase02(){
+        int x = -121;
+        assertFalse(solution.isPalindrome(x));
+    }
+
+    @Test
+    public void testIsPalindromeCase03(){
+        int x = 10;
+        assertFalse(solution.isPalindrome(x));
     }
 }
