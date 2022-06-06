@@ -226,4 +226,34 @@ class Solution{
         }
         return result > Integer.MAX_VALUE ? 0 : isNegative ? (int)result*-1 : (int)result;
     }
+    /**
+     * Convert a string to a 32-bit signed integer
+     * 
+     * @param s
+     * @return integer value of string
+     */
+    public int myAtoi(String s){
+        if(s.isEmpty()){
+            return 0;
+        }
+        long result = 0;
+        boolean isNegative = false;
+        char[] arr = s.trim().toCharArray();
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] >= '0' && arr[i] <= '9'){
+                result = result*10 + (int)arr[i] - 48;
+                if(result > Integer.MAX_VALUE){
+                    break;
+                }
+            }else if(i == 0){
+                isNegative = arr[i] == '-';
+                if(!isNegative && arr[i] != '+')
+                    break;
+            }else{
+                break;
+            }
+        }
+        return result > Integer.MAX_VALUE ? 
+            (isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE) : (isNegative ? (-1)*(int)result : (int)result);
+    }
 }

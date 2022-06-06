@@ -180,22 +180,22 @@ public class SolutionTest {
 
     @Test
     public void testReverseCase01(){
-        int x = 123;
-        int expected = 321;
+        int x = 123;        // 001111011
+        int expected = 321; // 101000001
         assertEquals(expected, solution.reverse(x));
     }
 
     @Test
     public void testReverseCase02(){
-        int x = -123;
-        int expected = -321;
+        int x = -123;       // -001111011
+        int expected = -321;// -101000001
         assertEquals(expected, solution.reverse(x));
     }
 
     @Test
     public void testReverseCase03(){
-        int x = 120;
-        int expected = 21;
+        int x = 120;        // 1111000
+        int expected = 21;  // 0010101
         assertEquals(expected, solution.reverse(x));
     }
 
@@ -204,5 +204,40 @@ public class SolutionTest {
         int x = 1534236469;
         int expected = 0;
         assertEquals(expected, solution.reverse(x));
+    }
+
+    @Test
+    public void testMyAtoiCase01(){
+        String s = "42";
+        int expected = 42;
+        assertEquals(expected, solution.myAtoi(s));
+    }
+
+    @Test
+    public void testMyAtoiCase02(){
+        String s = "     -42";
+        int expected = -42;
+        assertEquals(expected, solution.myAtoi(s));
+    }
+
+    @Test
+    public void testMyAtoiCase03(){
+        String s = "4193 with words";
+        int expected = 4193;
+        assertEquals(expected, solution.myAtoi(s));
+    }
+
+    @Test
+    public void testMyAtoiCase04(){
+        String s = "00000-42a1234";
+        int expected = 0;
+        assertEquals(expected, solution.myAtoi(s));
+    }
+
+    @Test
+    public void testMyAtoiCase05(){
+        String s = "9223372036854775808";
+        int expected = 2147483647;
+        assertEquals(expected, solution.myAtoi(s));
     }
 }
