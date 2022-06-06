@@ -259,4 +259,39 @@ public class SolutionTest {
         int x = 10;
         assertFalse(solution.isPalindrome(x));
     }
+
+    @Test
+    public void testIsMatchCase01(){
+        String s = "aa";
+        String p = "a";
+        assertFalse(solution.isMatch(s, p));
+    }
+    
+    @Test
+    public void testIsMatchCase02(){
+        String s = "aa";
+        String p = "a*";
+        assertTrue(solution.isMatch(s, p));
+    }
+
+    @Test
+    public void testIsMatchCase03(){
+        String s = "ab";
+        String p = ".*";
+        assertTrue(solution.isMatch(s, p));
+    }
+
+    @Test
+    public void testMaxAreaCase01(){
+        int[] height = new int[]{1,1};
+        int expected = 1;
+        assertEquals(expected, solution.maxArea(height));
+    }
+
+    @Test
+    public void testMaxAreaCase02(){
+        int[] height = new int[]{1,8,6,2,5,4,8,3,7};
+        int expected = 49;
+        assertEquals(expected, solution.maxArea(height));
+    }
 }

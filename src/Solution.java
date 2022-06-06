@@ -278,4 +278,44 @@ class Solution{
             return reverse == x;
         }
     }
+
+    /**
+     * Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+     * '.' Matches any single character.​​​​
+     * '*' Matches zero or more of the preceding element.
+     * The matching should cover the entire input string (not partial).
+     * 
+     * @param s
+     * @param p
+     * @return true if string match pattern.
+     */
+    public boolean isMatch(String s, String p){
+        return s.matches(p);
+    }
+
+
+    /**
+     * Find two lines that together with the x-axis form a container, such that the container contains the most water.
+     * Return the maximum amount of water a container can store.
+     * 
+     * @param height
+     * @return maximum amount of water a container can store.
+     */
+    public int maxArea(int[] height){
+        int i = 0;
+        int max = 0;
+        int min = 0;
+        int distance = height.length - 1;
+        while(distance > 0){
+            if(height[i] < height[i + distance]){
+                min = height[i];
+                i++;
+            }else{
+                min = height[i + distance];
+            }
+            max = Math.max(max, min*distance);
+            distance--;
+        }
+        return max;
+    }
 }
