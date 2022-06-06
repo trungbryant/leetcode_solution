@@ -1,6 +1,5 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 class Solution{
     /**
@@ -317,5 +316,24 @@ class Solution{
             distance--;
         }
         return max;
+    }
+
+    /**
+     * Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+     * 
+     * @param num
+     * @return
+     */
+    public String intToRoman(int num){
+        int[] key = new int[]{1000,900,500,400,100,90,50,40,10,9,5,4,3,2,1};
+        String[] value = new String[]{"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","III","II","I"};
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < 15 && num >=1; i++) {
+            while(num >= key[i]){
+                sb.append(value[i]);
+                num -= key[i];
+            }
+        }        
+        return sb.toString();
     }
 }

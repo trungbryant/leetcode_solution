@@ -294,4 +294,25 @@ public class SolutionTest {
         int expected = 49;
         assertEquals(expected, solution.maxArea(height));
     }
+
+    @Test
+    public void testIntToRomanCase01(){
+        int num = 3;
+        String expected = "III";
+        assertEquals(expected, solution.intToRoman(num));
+    }
+
+    @Test
+    public void testIntToRomanCase02(){
+        int num = 58;
+        String expected = "LVIII";
+        assertEquals(expected, solution.intToRoman(num));
+    }
+
+    @Test
+    public void testIntToRomanCase03(){
+        int num = 1994;
+        String expected = "MCMXCIV";
+        assertEquals(expected, solution.intToRoman(num));
+    }
 }
