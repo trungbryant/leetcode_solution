@@ -315,4 +315,25 @@ public class SolutionTest {
         String expected = "MCMXCIV";
         assertEquals(expected, solution.intToRoman(num));
     }
+
+    @Test
+    public void testRomanToIntCase01(){
+        String s = "III";
+        int expected = 3;
+        assertEquals(expected, solution.romanToInt(s));
+    }
+
+    @Test
+    public void testRomanToIntCase02(){
+        String s = "LVIII";
+        int expected = 58;
+        assertEquals(expected, solution.romanToInt(s));
+    }
+
+    @Test
+    public void testRomanToIntCase03(){
+        String s = "MCMXCIV";
+        int expected = 1994;
+        assertEquals(expected, solution.romanToInt(s));
+    }
 }

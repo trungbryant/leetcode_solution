@@ -336,4 +336,28 @@ class Solution{
         }        
         return sb.toString();
     }
+
+    /**
+     * Given a roman numeral, convert it to an integer.
+     * 
+     * @param s
+     * @return converted integer.
+     */
+    public int romanToInt(String s){
+        int start = 0;
+        int i = 0;
+        int[] key = new int[]{1000,900,500,400,100,90,50,40,10,9,5,4,3,2,1};
+        String[] value = new String[]{"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","III","II","I"};
+        int result = 0;
+        int length = s.length();
+        while(i < 15 && start < length){
+            if(s.indexOf(value[i], start) == start){
+                start += value[i].length();
+                result += key[i];
+            }else{
+                i++;
+            }
+        }
+        return result;
+    }
 }
