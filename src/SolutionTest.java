@@ -336,4 +336,18 @@ public class SolutionTest {
         int expected = 1994;
         assertEquals(expected, solution.romanToInt(s));
     }
+
+    @Test
+    public void testLongestCommonPrefixCase01(){
+        String strs[] = new String[]{"flower","flow","flight"};
+        String expected = "fl";
+        assertEquals(expected, solution.longestCommonPrefix(strs));
+    }
+
+    @Test
+    public void testLongestCommonPrefixCase02(){
+        String strs[] = new String[]{"dog","racecar","car"};
+        String expected = "";
+        assertEquals(expected, solution.longestCommonPrefix(strs));
+    }
 }
