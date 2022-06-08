@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 class Solution{
     /**
@@ -371,8 +370,9 @@ class Solution{
         int j = 0;
         while(true){
             try{
+                char c = strs[0].charAt(j);
                 for(int i = 1; i < strs.length; i++){
-                    if(strs[i].charAt(j) != strs[0].charAt(j)){
+                    if(strs[i].charAt(j) != c){
                         return strs[0].substring(0, j);
                     }
                 }
@@ -381,5 +381,50 @@ class Solution{
                 return strs[0].substring(0, j);
             }
         }
+    }
+
+    /**
+     * Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+     * 
+     * @param nums
+     * @return triplets to add up equal 0;
+     */
+    public List<List<Integer>> threeSum(int[] nums){
+        Arrays.sort(nums);
+        int length = nums.length;
+        int mid = -1;
+        int jinc = 0;
+        int kinc = 0;
+        Set<List<Integer>> result = new HashSet<>();
+        for(int i = 0; i < length; i++){
+            if(mid != -1 && i > mid){
+                break;
+            }
+            if(i == 0 || nums[i] != nums[i-1]){
+                int j = i + 1;
+                int k = length - 1;
+                while(j < k && (mid == -1 || k >= mid)){
+                    jinc = 0;
+                    kinc = 0;
+                    if(mid == -1 && nums[j] >= 0){
+                        mid = j;
+                    }
+                    if(nums[j] + nums[k] == -nums[i]){
+                        result.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                        jinc = 1;
+                        kinc = 1;
+                    }else if(nums[j] + nums[k] < -nums[i]){
+                        jinc = 1;
+                    }else{
+                        kinc = 1;
+                    }
+                    do{
+                        k-=kinc;
+                        j+=jinc;
+                    }while(j < k && ((j == i + 1 && nums[k] == nums[k+1]) || (k == length - 1 && nums[j] == nums[j - 1])));
+                }
+            }
+        }
+        return new ArrayList<>(result);
     }
 }

@@ -3,6 +3,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import java.util.*;
 
 import org.junit.Test;
 
@@ -349,5 +350,49 @@ public class SolutionTest {
         String strs[] = new String[]{"dog","racecar","car"};
         String expected = "";
         assertEquals(expected, solution.longestCommonPrefix(strs));
+    }
+
+    @Test
+    public void testThreeSumCase01(){
+        int[] nums = new int[]{-1,0,1,2,-1,-4};
+        List<List<Integer>> expecteds = Arrays.asList(Arrays.asList(-1,-1,2),Arrays.asList(-1,0,1));
+        List<List<Integer>> actuals = solution.threeSum(nums);
+        assertEquals(expecteds.size(), actuals.size());
+        for(List<Integer> expected: expecteds){
+            assertTrue(actuals.contains(expected));
+        }
+    }
+
+    @Test
+    public void testThreeSumCase02(){
+        int[] nums = new int[]{};
+        List<List<Integer>> expecteds = new ArrayList<>();
+        List<List<Integer>> actuals = solution.threeSum(nums);
+        assertEquals(expecteds.size(), actuals.size());
+        for(List<Integer> expected: expecteds){
+            assertTrue(actuals.contains(expected));
+        }
+    }
+
+    @Test
+    public void testThreeSumCase03(){
+        int[] nums = new int[]{0};
+        List<List<Integer>> expecteds = new ArrayList<>();
+        List<List<Integer>> actuals = solution.threeSum(nums);
+        assertEquals(expecteds.size(), actuals.size());
+        for(List<Integer> expected: expecteds){
+            assertTrue(actuals.contains(expected));
+        }
+    }
+
+    @Test
+    public void testThreeSumCase04(){
+        int[] nums = new int[]{-2,0,1,1,2};
+        List<List<Integer>> expecteds = Arrays.asList(Arrays.asList(-2,0,2),Arrays.asList(-2,1,1));
+        List<List<Integer>> actuals = solution.threeSum(nums);
+        assertEquals(expecteds.size(), actuals.size());
+        for(List<Integer> expected: expecteds){
+            assertTrue(actuals.contains(expected));
+        }
     }
 }
